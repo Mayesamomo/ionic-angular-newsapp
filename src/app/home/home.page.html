@@ -1,0 +1,45 @@
+<ion-content [scrollEvents]="true" scroll-y="auto">
+
+    <ion-fab vertical="top" horizontal="start" slot="fixed">
+        <ion-menu-toggle>
+            <ion-fab-button color="dark" translucent="true">
+                <ion-icon name="menu"></ion-icon>
+            </ion-fab-button>
+        </ion-menu-toggle>
+    </ion-fab>
+    <div class="imageDiv">
+        <img [src]="'assets/imgs/' + page.title +'.jpg'">
+    </div>
+    <div class="heading" text-uppercase>
+        {{page.title}}
+    </div>
+    <div class="three" [style.backgroundColor]="page.color">
+    </div>
+    <div style="position: absolute;
+    margin-top: -55px;
+    padding: 5px 20px;">
+        <span class="dateBox">{{date | date:'MMMM dd'}}</span><br>
+        <span class="dayBox">{{daysInWeek[day]}}</span>
+    </div>
+    <div *ngIf="newsList.length > 0" class="overlayDiv">
+    </div>
+    <div *ngIf="newsList.length > 0" class="bg-transparent">
+        <h3 class="ion-padding-horizontal" align="center">LATEST NEWS</h3>
+        <!-- //news  -->
+        <ion-card *ngFor="let news of newsList" mode="ios" (click)="openNews(news)"
+            [style.display]="news.urlToImage ? 'inherit' : 'none'">
+            <img [ngStyle]="{'display' : news.load ? 'initial' : 'none'}" [src]="news.urlToImage"
+                (load)="imageload(news)">
+            <img [ngStyle]="{'display' : news.load ? 'none' : 'initial'}" [src]="default">
+            <ion-card-header>
+                <ion-card-subtitle>{{news.publishedAt | date:' dd MMM, yyyy'}}</ion-card-subtitle>
+                <!-- <ion-card-title></ion-card-title> -->
+            </ion-card-header>
+            <ion-card-content color="light">
+                {{news.title}}
+            </ion-card-content>
+        </ion-card>
+
+    </div>
+
+</ion-content>

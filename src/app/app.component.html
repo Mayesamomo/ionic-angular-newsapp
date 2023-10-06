@@ -1,0 +1,28 @@
+<ion-app>
+  <ion-split-pane contentId="main-content">
+    <ion-menu contentId="main-content" type="reveal">
+      <ion-content color="dark">
+        <div class="container">
+          <div style="text-align: center">
+            <ion-searchbar (click)="searchChanged($event)" color="medium blue"></ion-searchbar>
+          </div>
+          <div class="vertical-center">
+            <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages; let i = index">
+              <!-- loop through news category with different color -->
+              <!-- <ion-nav root="nav-home" class="menuBox" (click)="openHomeWithState(p)">
+                does not work properly
+              </ion-nav> -->
+              <div class="menuBox" (click)="openHomeWithState(p)">
+                <div class="colorBox" [style.backgroundColor]="p.color">
+                  {{ i + 1 }}
+                </div>
+                <div class="titleBox">{{p.title}}</div>
+              </div>
+            </ion-menu-toggle>
+          </div>
+        </div>
+      </ion-content>
+    </ion-menu>
+    <ion-router-outlet id="main-content"></ion-router-outlet>
+  </ion-split-pane>
+</ion-app>

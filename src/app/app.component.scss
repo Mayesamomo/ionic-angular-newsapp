@@ -1,0 +1,45 @@
+ion-menu {
+    --ion-background-color: #0c1c3d;
+ 
+
+}
+
+ion-label {
+    color: #ebf8c9 !important;
+}
+
+.container {
+    height: 100%;
+    position: relative;
+   
+}
+
+.vertical-center {
+    margin: 0;
+    position: absolute;
+    top: 48%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+.menuBox {
+    clear: both;
+    padding: 30px 20px;
+   // width: 100%;
+}
+
+.colorBox {
+    float: left;
+    border-radius: 50%;
+    height: 30px;
+    width: 30px;
+    line-height: 30px;
+    text-align: center;
+}
+
+.titleBox {
+    float: left;
+    line-height: 30px;
+    padding: 0px 20px;
+    font-size: 15px;
+}
